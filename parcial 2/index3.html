@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RAWS SPORTS| RAWS SPORTS</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f7f7f7;
+            color: #222;
+        }
+
+        /* HEADER */
+        header {
+            background: #111;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        nav {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #d4a373;
+        }
+
+        .carrito {
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 550px;
+            display: flex;
+            align-items: center;
+            padding: 60px 7%;
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0,0,0,.75),
+                    rgba(0,0,0,.2)
+                ),
+                url("https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1600&q=80")
+                center/cover;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 600px;
+        }
+
+        .hero h1 {
+            font-size: clamp(42px, 7vw, 78px);
+            line-height: 1;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #fff;
+            color: #111;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: .3s;
+        }
+
+        .btn:hover {
+            background: #d4a373;
+            color: white;
+        }
+
+        /* CATEGORÍAS */
+        .categorias {
+            padding: 70px 7%;
+            text-align: center;
+        }
+
+        .titulo {
+            font-size: 36px;
+            margin-bottom: 40px;
+        }
+
+        .categoria-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .categoria {
+            height: 350px;
+            display: flex;
+            align-items: end;
+            padding: 30px;
+            color: white;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .categoria::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,.7));
+        }
+
+        .categoria h3 {
+            position: relative;
+            font-size: 28px;
+        }
+
+        .mujer {
+            background-image: url("https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=800&q=80");
+        }
+
+        .hombre {
+            background-image: url("https://images.unsplash.com/photo-1617137968427-85924c800a22?auto=format&fit=crop&w=800&q=80");
+        }
+
+        .accesorios {
+            background-image: url("https://images.unsplash.com/photo-1523779917675-b6ed3a42a561?auto=format&fit=crop&w=800&q=80");
+        }
+
+        /* PRODUCTOS */
+        .productos {
+            padding: 70px 7%;
+            background: white;
+        }
+
+        .productos-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        .productos-header h2 {
+            font-size: 36px;
+        }
+
+        .ver-todo {
+            color: #111;
+            text-decoration: none;
+            border-bottom: 1px solid #111;
+        }
+
+        .productos-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 25px;
+        }
+
+        .producto {
+            background: #f7f7f7;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .producto img {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+            transition: transform .4s;
+        }
+
+        .producto:hover img {
+            transform: scale(1.05);
+        }
+
+        .info {
+            padding: 18px;
+        }
+
+        .info h3 {
+            font-size: 17px;
+            margin-bottom: 8px;
+        }
+
+        .precio {
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .etiqueta {
+            position: absolute;
+            top: 12px;
+            left: 12px;
+            background: #111;
+            color: white;
+            padding: 7px 12px;
+            font-size: 12px;
+        }
+
+        /* NEWSLETTER */
+        .newsletter {
+            padding: 80px 7%;
+            text-align: center;
+            background: #e8e1d9;
+        }
+
+        .newsletter h2 {
+            font-size: 38px;
+            margin-bottom: 15px;
+        }
+
+        .newsletter p {
+            margin-bottom: 30px;
+        }
+
+        .formulario {
+            display: flex;
+            max-width: 550px;
+            margin: auto;
+        }
+
+        .formulario input {
+            flex: 1;
+            padding: 16px;
+            border: none;
+            outline: none;
+        }
+
+        .formulario button {
+            border: none;
+            background: #111;
+            color: white;
+            padding: 16px 25px;
+            cursor: pointer;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #111;
+            color: white;
+            padding: 50px 7%;
+            text-align: center;
+        }
+
+        footer h2 {
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            color: #aaa;
+        }
+
+        /* TABLET */
+        @media (max-width: 900px) {
+            .productos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .categoria-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .categoria {
+                height: 300px;
+            }
+        }
+
+        /* CELULAR */
+        @media (max-width: 600px) {
+
+            header {
+                padding: 15px 5%;
+            }
+
+            .logo {
+                font-size: 22px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            .hero {
+                min-height: 500px;
+                padding: 40px 5%;
+            }
+
+            .hero h1 {
+                font-size: 48px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .categorias,
+            .productos {
+                padding: 50px 5%;
+            }
+
+            .titulo,
+            .productos-header h2,
+            .newsletter h2 {
+                font-size: 30px;
+            }
+
+            .productos-header {
+                align-items: flex-start;
+                gap: 15px;
+            }
+
+            .productos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .producto img {
+                height: 430px;
+            }
+
+            .formulario {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .formulario input,
+            .formulario button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="logo">MODA</div>
+
+        <nav>
+            <a href="#">Inicio</a>
+            <a href="#categorias">Categorías</a>
+            <a href="#productos">Productos</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+
+        <div class="carrito">🛒</div>
+    </header>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Viste tu estilo.</h1>
+
+            <p>
+                Descubre nuestra nueva colección de ropa diseñada
+                para expresar quién eres.
+            </p>
+
+            <a href="#productos" class="btn">
+                Comprar ahora
+            </a>
+        </div>
+    </section>
+
+    <!-- CATEGORÍAS -->
+    <section class="categorias" id="categorias">
+
+        <h2 class="titulo">Explora nuestras categorías</h2>
+
+        <div class="categoria-grid">
+
+            <div class="categoria mujer">
+                <h3>Mujer</h3>
+            </div>
+
+            <div class="categoria hombre">
+                <h3>Hombre</h3>
+            </div>
+
+            <div class="categoria accesorios">
+                <h3>Accesorios</h3>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PRODUCTOS -->
+    <section class="productos" id="productos">
+
+        <div class="productos-header">
+            <h2>Novedades</h2>
+            <a href="#" class="ver-todo">Ver todo →</a>
+        </div>
+
+        <div class="productos-grid">
+
+            <article class="producto">
+                <span class="etiqueta">NUEVO</span>
+
+                <img
+                    src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?auto=format&fit=crop&w=700&q=80"
+                    alt="Vestido negro"
+                >
+
+                <div class="info">
+                    <h3>Vestido Minimalista</h3>
+                    <span class="precio">$899 MXN</span>
+                </div>
+            </article>
+
+            <article class="producto">
+                <span class="etiqueta">NUEVO</span>
+
+                <img
+                    src="https://images.unsplash.com/photo-1598033129183-c4f50c736f10?auto=format&fit=crop&w=700&q=80"
+                    alt="Camisa blanca"
+                >
+
+                <div class="info">
+                    <h3>Camisa Blanca</h3>
+                    <span class="precio">$649 MXN</span>
+                </div>
+            </article>
+
+            <article class="producto">
+
+                <img
+                    src="https://images.unsplash.com/photo-1541099649105-f69ad21f3246?auto=format&fit=crop&w=700&q=80"
+                    alt="Jeans"
+                >
+
+                <div class="info">
+                    <h3>Jeans Clásicos</h3>
+                    <span class="precio">$799 MXN</span>
+                </div>
+            </article>
+
+            <article class="producto">
+
+                <img
+                    src="https://images.unsplash.com/photo-1551488831-00ddcb6c6bd3?auto=format&fit=crop&w=700&q=80"
+                    alt="Chaqueta"
+                >
+
+                <div class="info">
+                    <h3>Chaqueta Urbana</h3>
+                    <span class="precio">$1,199 MXN</span>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <!-- NEWSLETTER -->
+    <section class="newsletter">
+
+        <h2>Únete a MODA</h2>
+
+        <p>
+            Recibe novedades, descuentos y nuevas colecciones.
+        </p>
+
+        <form class="formulario">
+
+            <input
+                type="email"
+                placeholder="Tu correo electrónico"
+                required
+            >
+
+            <button type="submit">
+                Suscribirme
+            </button>
+
+        </form>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer id="contacto">
+
+        <h2>MODA</h2>
+
+        <p>
+            © 2026 MODA. Todos los derechos reservados.
+        </p>
+
+    </footer>
+
+</body>
+</html>
